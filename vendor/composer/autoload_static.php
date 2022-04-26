@@ -119,10 +119,12 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
             'League\\MimeTypeDetection\\' => 25,
             'League\\Flysystem\\' => 17,
             'League\\CommonMark\\' => 18,
+            'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
         ),
         'I' => 
         array (
+            'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\' => 11,
         ),
         'G' => 
@@ -372,9 +374,17 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
         ),
+        'Laravel\\Ui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/ui/src',
+        ),
         'Laravel\\Tinker\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
+        ),
+        'Illuminate\\Foundation\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/ui/auth-backend',
         ),
         'Illuminate\\' => 
         array (
@@ -475,6 +485,7 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Api\\TaskController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TaskController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -820,7 +831,6 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         'Facade\\Ignition\\Context\\LaravelConsoleContext' => __DIR__ . '/..' . '/facade/ignition/src/Context/LaravelConsoleContext.php',
         'Facade\\Ignition\\Context\\LaravelContextDetector' => __DIR__ . '/..' . '/facade/ignition/src/Context/LaravelContextDetector.php',
         'Facade\\Ignition\\Context\\LaravelRequestContext' => __DIR__ . '/..' . '/facade/ignition/src/Context/LaravelRequestContext.php',
-        'Facade\\Ignition\\Context\\LivewireRequestContext' => __DIR__ . '/..' . '/facade/ignition/src/Context/LivewireRequestContext.php',
         'Facade\\Ignition\\DumpRecorder\\Dump' => __DIR__ . '/..' . '/facade/ignition/src/DumpRecorder/Dump.php',
         'Facade\\Ignition\\DumpRecorder\\DumpHandler' => __DIR__ . '/..' . '/facade/ignition/src/DumpRecorder/DumpHandler.php',
         'Facade\\Ignition\\DumpRecorder\\DumpRecorder' => __DIR__ . '/..' . '/facade/ignition/src/DumpRecorder/DumpRecorder.php',
@@ -854,7 +864,6 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         'Facade\\Ignition\\Logger\\FlareHandler' => __DIR__ . '/..' . '/facade/ignition/src/Logger/FlareHandler.php',
         'Facade\\Ignition\\Middleware\\AddDumps' => __DIR__ . '/..' . '/facade/ignition/src/Middleware/AddDumps.php',
         'Facade\\Ignition\\Middleware\\AddEnvironmentInformation' => __DIR__ . '/..' . '/facade/ignition/src/Middleware/AddEnvironmentInformation.php',
-        'Facade\\Ignition\\Middleware\\AddExceptionInformation' => __DIR__ . '/..' . '/facade/ignition/src/Middleware/AddExceptionInformation.php',
         'Facade\\Ignition\\Middleware\\AddGitInformation' => __DIR__ . '/..' . '/facade/ignition/src/Middleware/AddGitInformation.php',
         'Facade\\Ignition\\Middleware\\AddJobInformation' => __DIR__ . '/..' . '/facade/ignition/src/Middleware/AddJobInformation.php',
         'Facade\\Ignition\\Middleware\\AddLogs' => __DIR__ . '/..' . '/facade/ignition/src/Middleware/AddLogs.php',
@@ -879,8 +888,6 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         'Facade\\Ignition\\SolutionProviders\\RunningLaravelDuskInProductionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/RunningLaravelDuskInProductionProvider.php',
         'Facade\\Ignition\\SolutionProviders\\SolutionProviderRepository' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/SolutionProviderRepository.php',
         'Facade\\Ignition\\SolutionProviders\\TableNotFoundSolutionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/TableNotFoundSolutionProvider.php',
-        'Facade\\Ignition\\SolutionProviders\\UndefinedLivewireMethodSolutionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/UndefinedLivewireMethodSolutionProvider.php',
-        'Facade\\Ignition\\SolutionProviders\\UndefinedLivewirePropertySolutionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/UndefinedLivewirePropertySolutionProvider.php',
         'Facade\\Ignition\\SolutionProviders\\UndefinedPropertySolutionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/UndefinedPropertySolutionProvider.php',
         'Facade\\Ignition\\SolutionProviders\\UndefinedVariableSolutionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/UndefinedVariableSolutionProvider.php',
         'Facade\\Ignition\\SolutionProviders\\UnknownValidationSolutionProvider' => __DIR__ . '/..' . '/facade/ignition/src/SolutionProviders/UnknownValidationSolutionProvider.php',
@@ -893,14 +900,11 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         'Facade\\Ignition\\Solutions\\SolutionTransformer' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SolutionTransformer.php',
         'Facade\\Ignition\\Solutions\\SuggestCorrectVariableNameSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SuggestCorrectVariableNameSolution.php',
         'Facade\\Ignition\\Solutions\\SuggestImportSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SuggestImportSolution.php',
-        'Facade\\Ignition\\Solutions\\SuggestLivewireMethodNameSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SuggestLivewireMethodNameSolution.php',
-        'Facade\\Ignition\\Solutions\\SuggestLivewirePropertyNameSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SuggestLivewirePropertyNameSolution.php',
         'Facade\\Ignition\\Solutions\\SuggestUsingCorrectDbNameSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/SuggestUsingCorrectDbNameSolution.php',
         'Facade\\Ignition\\Solutions\\UseDefaultValetDbCredentialsSolution' => __DIR__ . '/..' . '/facade/ignition/src/Solutions/UseDefaultValetDbCredentialsSolution.php',
         'Facade\\Ignition\\Support\\ComposerClassMap' => __DIR__ . '/..' . '/facade/ignition/src/Support/ComposerClassMap.php',
         'Facade\\Ignition\\Support\\FakeComposer' => __DIR__ . '/..' . '/facade/ignition/src/Support/FakeComposer.php',
         'Facade\\Ignition\\Support\\LaravelVersion' => __DIR__ . '/..' . '/facade/ignition/src/Support/LaravelVersion.php',
-        'Facade\\Ignition\\Support\\LivewireComponentParser' => __DIR__ . '/..' . '/facade/ignition/src/Support/LivewireComponentParser.php',
         'Facade\\Ignition\\Support\\Packagist\\Package' => __DIR__ . '/..' . '/facade/ignition/src/Support/Packagist/Package.php',
         'Facade\\Ignition\\Support\\Packagist\\Packagist' => __DIR__ . '/..' . '/facade/ignition/src/Support/Packagist/Packagist.php',
         'Facade\\Ignition\\Support\\SentReports' => __DIR__ . '/..' . '/facade/ignition/src/Support/SentReports.php',
@@ -1948,7 +1952,15 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         'Illuminate\\Foundation\\Application' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Application.php',
         'Illuminate\\Foundation\\Auth\\Access\\Authorizable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/Access/Authorizable.php',
         'Illuminate\\Foundation\\Auth\\Access\\AuthorizesRequests' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php',
+        'Illuminate\\Foundation\\Auth\\AuthenticatesUsers' => __DIR__ . '/..' . '/laravel/ui/auth-backend/AuthenticatesUsers.php',
+        'Illuminate\\Foundation\\Auth\\ConfirmsPasswords' => __DIR__ . '/..' . '/laravel/ui/auth-backend/ConfirmsPasswords.php',
+        'Illuminate\\Foundation\\Auth\\RedirectsUsers' => __DIR__ . '/..' . '/laravel/ui/auth-backend/RedirectsUsers.php',
+        'Illuminate\\Foundation\\Auth\\RegistersUsers' => __DIR__ . '/..' . '/laravel/ui/auth-backend/RegistersUsers.php',
+        'Illuminate\\Foundation\\Auth\\ResetsPasswords' => __DIR__ . '/..' . '/laravel/ui/auth-backend/ResetsPasswords.php',
+        'Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails' => __DIR__ . '/..' . '/laravel/ui/auth-backend/SendsPasswordResetEmails.php',
+        'Illuminate\\Foundation\\Auth\\ThrottlesLogins' => __DIR__ . '/..' . '/laravel/ui/auth-backend/ThrottlesLogins.php',
         'Illuminate\\Foundation\\Auth\\User' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Auth/User.php',
+        'Illuminate\\Foundation\\Auth\\VerifiesEmails' => __DIR__ . '/..' . '/laravel/ui/auth-backend/VerifiesEmails.php',
         'Illuminate\\Foundation\\Bootstrap\\BootProviders' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php',
         'Illuminate\\Foundation\\Bootstrap\\HandleExceptions' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php',
         'Illuminate\\Foundation\\Bootstrap\\LoadConfiguration' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php',
@@ -2441,6 +2453,15 @@ class ComposerStaticInitc6a73c2975ebea26f2d43f28166bee32
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
         'Laravel\\Tinker\\TinkerServiceProvider' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerServiceProvider.php',
+        'Laravel\\Ui\\AuthCommand' => __DIR__ . '/..' . '/laravel/ui/src/AuthCommand.php',
+        'Laravel\\Ui\\AuthRouteMethods' => __DIR__ . '/..' . '/laravel/ui/src/AuthRouteMethods.php',
+        'Laravel\\Ui\\ControllersCommand' => __DIR__ . '/..' . '/laravel/ui/src/ControllersCommand.php',
+        'Laravel\\Ui\\Presets\\Bootstrap' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Bootstrap.php',
+        'Laravel\\Ui\\Presets\\Preset' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Preset.php',
+        'Laravel\\Ui\\Presets\\React' => __DIR__ . '/..' . '/laravel/ui/src/Presets/React.php',
+        'Laravel\\Ui\\Presets\\Vue' => __DIR__ . '/..' . '/laravel/ui/src/Presets/Vue.php',
+        'Laravel\\Ui\\UiCommand' => __DIR__ . '/..' . '/laravel/ui/src/UiCommand.php',
+        'Laravel\\Ui\\UiServiceProvider' => __DIR__ . '/..' . '/laravel/ui/src/UiServiceProvider.php',
         'League\\CommonMark\\Block\\Element\\AbstractBlock' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/AbstractBlock.php',
         'League\\CommonMark\\Block\\Element\\AbstractStringContainerBlock' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/AbstractStringContainerBlock.php',
         'League\\CommonMark\\Block\\Element\\BlockQuote' => __DIR__ . '/..' . '/league/commonmark/src/Block/Element/BlockQuote.php',
