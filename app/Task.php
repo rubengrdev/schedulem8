@@ -10,7 +10,7 @@ class Task extends Model
     //
     use Notifiable;
 
-    protected $fillable = ['title', 'desc', 'category', 'iduser', 'datetask'];
+    protected $fillable = ['title', 'desc', 'category', 'user_id', 'datetask'];
 
     public function user()
     {
