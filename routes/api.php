@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('tasks', 'Api\TaskController');
-
+Route::post('user', 'Api\UserController@index');
 Route::put('/tasks/{id}',[Task::class,'update']);
 
 
