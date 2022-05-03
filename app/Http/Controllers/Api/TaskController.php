@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class TaskController extends Controller
 {
@@ -60,6 +61,15 @@ class TaskController extends Controller
             'user_id' => 'required',
             'datetask' => 'required'
         ]);
+
+        $user = User::where('id', $validated['user_id'])->get();
+
+        if (count($user) == 0) {
+            return response()->json([
+                'success' => false,
+                'message' => 'User id not found'
+            ], 200);
+        }
 
         $task = Task::create([
             'title' => $validated['title'],
@@ -128,6 +138,13 @@ class TaskController extends Controller
         //
         $task = Task::find($id);
 
+        if (!$task) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Task with id ' . $id . ' not found'
+            ], 200);
+        }
+
         $validated = $request->validate([
             'title' => 'required|max:50',
             'desc' => 'required|max:255',
@@ -151,7 +168,6 @@ class TaskController extends Controller
             'success' => true,
             'data' => 'Task updated'
         ], 200);
-
     }
 
     /**
@@ -165,7 +181,7 @@ class TaskController extends Controller
         //
         $task = Task::where('id', $id)->delete();
 
-        if (count($task) == 0) {
+        if (!$task) {
             return response()->json([
                 'success' => false,
                 'message' => 'Task with id ' . $id . ' not found'
