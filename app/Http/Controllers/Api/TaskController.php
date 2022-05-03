@@ -19,7 +19,7 @@ class TaskController extends Controller
         //
         $tasks = Task::all();
 
-        if (!$tasks) {
+        if (count($tasks) == 0) {
             return response()->json([
                 'success' => false,
                 'message' => 'No tasks were found'
@@ -92,7 +92,7 @@ class TaskController extends Controller
         $task = Task::where('id', $id)->get();
 
         //si no hay atributos quiere decir que el registro no existe en la BBDD
-        if ($task[0]->attributes) {
+        if (count($task) == 0) {
             return response()->json([
                 'success' => false,
                 'message' => 'Task with id ' . $id . ' not found'
@@ -140,7 +140,7 @@ class TaskController extends Controller
         $task->category = $validated['category'];
         $task->datetask = $validated['datetask'];
 
-        if (!$task->update($request->all())) {
+        if (!$task->update($validated)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Task with id ' . $id . ' can not be updated'
@@ -165,7 +165,7 @@ class TaskController extends Controller
         //
         $task = Task::where('id', $id)->delete();
 
-        if (!$task) {
+        if (count($task) == 0) {
             return response()->json([
                 'success' => false,
                 'message' => 'Task with id ' . $id . ' not found'
