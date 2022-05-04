@@ -67,12 +67,15 @@ html,body, .global{
 
 
         </div>
+        <input type="button" class="create" value="Crear Tarea">
     </div>
 
 <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
 
 <script>
     let uid = document.getElementById("uid").value;
+    let create = document.querySelector(".create");
+
     console.log(uid.value);
     const getTasks = async () => {
         const response = await fetch("http://localhost:8000/api/tasks/",{
@@ -104,6 +107,8 @@ html,body, .global{
         }
     }
 
+    create.addEventListener("click",()=>{
 
+    });
 </script>
 @endsection
