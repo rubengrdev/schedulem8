@@ -78,14 +78,12 @@ html,body, .global{
 
     console.log(uid.value);
     const getTasks = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks/",{
-            method: 'POST',
+        const response = await fetch("http://localhost:8000/api/tasks",{
             headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         "X-CSRF-Token": document.querySelector('input[name=_token]').value
-        },
-        body: uid
+    }
         });
         const data = await response.json();
         console.log(data);

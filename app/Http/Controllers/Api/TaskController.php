@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Support\Facades\Auth;
@@ -86,33 +87,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //$user = Auth::user();
 
-        $validated = $request->validate([
-            'title' => 'required|max:50',
-            'desc' => 'required|max:255',
-            'category' => 'required|max:50',
-            'user_id' => 'required',
-            'datetask' => 'required'
-        ]);
-
-        $user = User::where('id', $validated['user_id'])->get();
-
-        if (count($user) == 0) {
-            return response()->json([
-                'success' => false,
-                'message' => 'User id not found'
-            ], 200);
-        }
 
         $task = Task::create([
-            'title' => $validated['title'],
-            'desc' => $validated['desc'],
-            'category' => $validated['category'],
-            //'user_id' => $user->id,
-            'user_id' => $validated['user_id'],
-            'datetask' => $validated['datetask'],
+            'title' => $request->input('title'),
+            'desc' => $request->input('desc'),
+            'category' => $request->input('category'),
+            'user_id' => $request->input('user_id'),
+            'datetask' => $request->input('datetask'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -227,5 +209,8 @@ class TaskController extends Controller
             'success' => true,
             'data' => 'Task deleted'
         ], 200);
+    }
+    public function TaskView(){
+        return view("formtask");
     }
 }
