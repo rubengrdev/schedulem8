@@ -47,6 +47,11 @@ html,body, .global{
 .task{
     background:rgba(145, 255, 141, 0.452) !important;
 }
+#bottom-menu{
+    width:100vw;
+    height:200px;
+    background-color:red;
+}
     </style>
 
 
@@ -57,6 +62,10 @@ html,body, .global{
 
 
             </div>
+
+        </div>
+
+
         </div>
     </div>
 
