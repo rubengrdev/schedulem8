@@ -71,7 +71,13 @@ html,body, .global{
 
 <script>
     const getTasks = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks%22);
+        const response = await fetch("http://localhost:8000/api/tasks",{
+            headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        "X-CSRF-Token": document.querySelector('input[name=_token]').value
+    }
+        });
         const data = await response.json();
         console.log(data);
         setTasks(data.data);
