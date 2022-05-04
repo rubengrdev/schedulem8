@@ -69,7 +69,6 @@ html,body, .global{
         </div>
     </div>
 
-<<<<<<< HEAD
 <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
 
 <script>
@@ -85,11 +84,6 @@ html,body, .global{
         },
         body: uid
         });
-=======
-<script>
-    const getTasks = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks%22);
->>>>>>> 2f13ca3bdda38ae4aecca13bcbe53fddf27d8541
         const data = await response.json();
         console.log(data);
         setTasks(data.data);
@@ -112,8 +106,4 @@ html,body, .global{
 
 
 </script>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 2f13ca3bdda38ae4aecca13bcbe53fddf27d8541
