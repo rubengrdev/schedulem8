@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
+Route::get('/calendar', function(){
+    return view('calendar');
+});
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');

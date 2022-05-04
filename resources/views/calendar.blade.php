@@ -70,18 +70,28 @@ html,body, .global{
     </div>
 
 <script>
-    const calendar = document.getElementsByClassName('calendar')[0];
-    const task = [1,4,7,25,30];
-    for(let i=1;i<=31;i++){
-        const div = document.createElement('div');
-        task.map((day) => {
-            if(i === day){
-                div.className = "task";
-            }
-        });
-        div.textContent = i;
-        calendar.appendChild(div);
+    const getTasks = async () => {
+        const response = await fetch("http://localhost:8000/api/tasks%22);
+        const data = await response.json();
+        console.log(data);
+        setTasks(data.data);
     }
+    getTasks();
+    const setTasks = (array) => {
+        const calendar = document.getElementsByClassName('calendar')[0];
+        for(let i=1;i<=31;i++){
+            const div = document.createElement('div');
+            array.map((day) => {
+                let date = new Date(day.datetask);
+                if(i == date.getDate()){
+                    div.className = "task";
+                }
+            });
+            div.textContent = i;
+            calendar.appendChild(div);
+        }
+    }
+
 
 </script>
 @endsection
