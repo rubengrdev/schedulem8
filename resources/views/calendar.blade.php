@@ -69,7 +69,11 @@ html,body, .global{
         </div>
     </div>
 
+<input id="uid" type="hidden" value="{{ Auth::user()->id }}">
+
 <script>
+    let uid = document.getElementById("uid").value;
+    console.log(uid.value);
     const getTasks = async () => {
         const response = await fetch("http://localhost:8000/api/tasks",{
             headers: {
