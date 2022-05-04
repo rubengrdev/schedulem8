@@ -69,10 +69,22 @@ html,body, .global{
         </div>
     </div>
 
+<input id="uid" type="hidden" value="{{ Auth::user()->id }}">
+
 <script>
+    let uid = document.getElementById("uid").value;
+    console.log(uid.value);
     const getTasks = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks%22);
-        const data = await response.json();
+        const response = await fetch("http://localhost:8000/api/tasks/",{
+            method: 'POST',
+            headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        "X-CSRF-Token": document.querySelector('input[name=_token]').value
+        },
+        body: uid
+        });
+        const data = await response.text();
         console.log(data);
         setTasks(data.data);
     }
