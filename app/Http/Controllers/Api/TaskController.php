@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+=======
+>>>>>>> 2f13ca3bdda38ae4aecca13bcbe53fddf27d8541
 
 class TaskController extends Controller
 {
@@ -19,6 +22,7 @@ class TaskController extends Controller
     /*
     public function index(Request $request)
     {
+<<<<<<< HEAD
 
         $tasks = Task::where('user_id', Auth::user());
 
@@ -52,6 +56,10 @@ class TaskController extends Controller
         $tasks = Task::where('user_id', $request->getContent());
         dd($tasks);
         */
+=======
+        //
+        $tasks = Task::all();
+>>>>>>> 2f13ca3bdda38ae4aecca13bcbe53fddf27d8541
 
         if (count($tasks) == 0) {
             return response()->json([
