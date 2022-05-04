@@ -7,18 +7,20 @@ use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+    * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*
+    public function index(Request $request)
     {
-        //
-        $tasks = Task::all();
+
+        $tasks = Task::where('user_id', Auth::user());
 
         if (count($tasks) == 0) {
             return response()->json([
@@ -32,6 +34,39 @@ class TaskController extends Controller
             'data' => $tasks->toArray()
         ], 200);
     }
+    */
+
+    public function postIndex(Request $request)
+    {
+        //dd($request->getContent());
+        $tasks = DB::table('tasks')->where('user_id', $request->getContent())->get();
+        /*
+        dd($tasks);
+        //$c = new collect();
+        foreach($tasks as $task){
+            if($task->user_id == $request->getContent()){
+
+            }
+        }
+        dd($tasks);
+        $tasks = Task::where('user_id', $request->getContent());
+        dd($tasks);
+        */
+
+        if (count($tasks) == 0) {
+            return response()->json([
+                'success' => false,
+                'message' => 'No tasks were found'
+            ], 200);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $tasks->toArray()
+        ], 200);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
