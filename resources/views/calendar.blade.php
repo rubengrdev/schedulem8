@@ -84,7 +84,7 @@ html,body, .global{
         },
         body: uid
         });
-        const data = await response.text();
+        const data = await response.json();
         console.log(data);
         setTasks(data.data);
     }
