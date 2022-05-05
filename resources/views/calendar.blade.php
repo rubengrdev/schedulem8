@@ -102,34 +102,41 @@ html,body, .global{
     getTasks();
     const setTasks = (array) => {
         let superStringRefache2 = "";
-        let clicked = false;
+        let multipletask = [];
         const mostrar = document.querySelector(".mostrar");
-        console.log(mostrar);
+        //console.log(mostrar);
         const calendar = document.getElementsByClassName('calendar')[0];
         for(let i=1;i<=31;i++){
             const div = document.createElement('div');
+
             array.map((day) => {
                 let date = new Date(day.datetask);
                 if(i == date.getDate()){
                     div.className = "task";
-                    div.addEventListener("click",()=>{
-                        if(clicked){
-                            mostrar.removeChild();
-                        }
-                        console.log(day);
-                         superStringRefache2 += "<div style='border:1px solid black;'>Titulo: " + day.title + "<br>Descripción: " + day.desc + "<br>Categoria: " + day.category + "<br>Fecha fin: " + day.datetask + "</div><br><br>";
-                         mostrar.innerHTML = superStringRefache2;
-                         clicked = true;
+                    div.addEventListener("click",(e)=>{
+                        //guardamos en una colección toda la información
+                        multipletask += day;
 
+                       //mostrar.innerHTML = superStringRefache2;
                     })
                 }
             });
+            console.log(multipletask)
 
             div.textContent = i;
             calendar.appendChild(div);
-        }
-    }
 
+        }
+
+    }
+    function setString(multipletask){
+        let string = "";
+        multipletask.forEach(task =>{
+            string += "<div style='border:1px solid black;'>Titulo: " + day.title + "<br>Descripción: " + day.desc + "<br>Categoria: " + day.category + "<br>Fecha fin: " + day.datetask + "</div>";
+
+        })
+        return string
+    }
 
 </script>
 @endsection
