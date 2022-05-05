@@ -101,10 +101,7 @@ html,body, .global{
     }
     getTasks();
     const setTasks = (array) => {
-        let superStringRefache2 = "";
-        let multipletask = [];
         const mostrar = document.querySelector(".mostrar");
-        //console.log(mostrar);
         const calendar = document.getElementsByClassName('calendar')[0];
         for(let i=1;i<=31;i++){
             const div = document.createElement('div');
@@ -113,12 +110,6 @@ html,body, .global{
                 let date = new Date(day.datetask);
                 if(i == date.getDate()){
                     div.className = "task";
-                    div.addEventListener("click",(e)=>{
-                        //guardamos en una colección toda la información
-                        multipletask += day;
-
-                       //mostrar.innerHTML = superStringRefache2;
-                    })
                 }
             });
             console.log(multipletask)
@@ -126,6 +117,39 @@ html,body, .global{
             div.textContent = i;
             calendar.appendChild(div);
 
+        };
+
+        showDayTasks(array);
+    }
+    const showDayTasks = (array) => {
+        const task = document.getElementsByClassName("task");
+        const tar = document.getElementsByClassName("tar");
+        const mostrar = document.querySelector(".mostrar");
+        console.log(tar);
+
+        for(let i = 0; i<task.length;i++){
+            task[i].addEventListener("click",(e)=>{
+                console.log(e.target.textContent);
+                if(tar.length > 0){
+                    for(let i = 0; i<tar.length;i++){
+                        console.log(tar.length);
+                        tar[0].remove();
+                    }
+                }
+                array.map((day) => {
+                    let date = new Date(day.datetask);
+                    if(e.target.textContent == date.getDate()){
+                        superStringRefache2 = "<div class='tar' style='border:1px solid black;'>Titulo: " + day.title + "<br>Descripción: " + day.desc + "<br>Categoria: " + day.category + "<br>Fecha fin: " + day.datetask + "</div>";
+                        mostrar.innerHTML += superStringRefache2;
+
+                }
+            });
+                // console.log(day);
+                //     superStringRefache2 += "<div style='border:1px solid black;'>Titulo: " + day.title + "<br>Descripción: " + day.desc + "<br>Categoria: " + day.category + "<br>Fecha fin: " + day.datetask + "</div><br><br>";
+                //     mostrar.innerHTML = superStringRefache2;
+                //     clicked = true;
+
+            })
         }
 
     }
@@ -137,6 +161,7 @@ html,body, .global{
         })
         return string
     }
+
 
 </script>
 @endsection
