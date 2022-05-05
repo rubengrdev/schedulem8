@@ -55,6 +55,7 @@ select{
     <div class="global">
 
         <div class="body">
+            <br>
             <form>
                 @csrf
                 <input id="title" type="text" placeholder="titulo"/>
@@ -63,7 +64,8 @@ select{
                 <select id="date">
                 </select>
             </form>
-            <button id="button" type="button">Enviar</button>
+            <br>
+            <button id="button" class="btn btn-primary" type="button">Enviar</button>
         </div>
     </div>
     <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
@@ -79,7 +81,7 @@ select{
             select.innerHTML += `<option value="2022-05-0${i}">2022-05-0${i}</option>`;
         }else{
             select.innerHTML += `<option value="2022-05-${i}">2022-05-${i}</option>`;
-            
+
         }
     }
     button.addEventListener("click", () => sendForm());

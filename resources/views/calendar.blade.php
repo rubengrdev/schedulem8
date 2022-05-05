@@ -67,7 +67,10 @@ html,body, .global{
 
 
         </div>
-        <input type="button" class="create" value="Crear Tarea" onclick="">
+        <div class="create-div">
+            <input type="button" class="create btn btn-primary" value="Crear Tarea" onclick="">
+        </div>
+
     </div>
 
 <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
