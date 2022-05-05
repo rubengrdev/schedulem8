@@ -86,7 +86,7 @@ select{
     }
     button.addEventListener("click", () => sendForm());
     const sendForm = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks",{
+        const response = await fetch("http://localhost:8000/api/tasks/store",{
             method:"POST",
             body:JSON.stringify({
                 title:title.value,
