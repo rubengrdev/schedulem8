@@ -71,7 +71,7 @@ html,body, .global{
 
 <script>
     const getTasks = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks%22);
+        const response = await fetch("http://localhost:8000/api/tasks");
         const data = await response.json();
         console.log(data);
         setTasks(data.data);
