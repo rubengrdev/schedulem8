@@ -76,7 +76,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('formtask');
     }
 
     /**
@@ -210,7 +210,5 @@ class TaskController extends Controller
             'data' => 'Task deleted'
         ], 200);
     }
-    public function TaskView(){
-        return view("formtask");
-    }
+
 }

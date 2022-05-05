@@ -67,7 +67,7 @@ html,body, .global{
 
 
         </div>
-        <input type="button" class="create" value="Crear Tarea" onclick="{{ redirect("/tasks/create") }}">
+        <input type="button" class="create" value="Crear Tarea" onclick="">
     </div>
 
 <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
@@ -75,8 +75,11 @@ html,body, .global{
 <script>
     let uid = document.getElementById("uid").value;
     let create = document.querySelector(".create");
-
-    console.log(uid);
+    create.addEventListener("click",()=>{
+        //usando Blade
+        window.location='{{ route('task.create') }}';
+    },false);
+    //console.log(uid);
     const getTasks = async () => {
         const response = await fetch("http://localhost:8000/api/tasks",{
             method: 'POST',
