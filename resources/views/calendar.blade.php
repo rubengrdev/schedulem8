@@ -70,7 +70,9 @@ html,body, .global{
         <div class="create-div">
             <input type="button" class="create btn btn-primary" value="Crear Tarea" onclick="">
         </div>
+        <div class="create-div mostrar">
 
+        </div>
     </div>
 
 <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
@@ -99,6 +101,10 @@ html,body, .global{
     }
     getTasks();
     const setTasks = (array) => {
+        let superStringRefache2 = "";
+        let clicked = false;
+        const mostrar = document.querySelector(".mostrar");
+        console.log(mostrar);
         const calendar = document.getElementsByClassName('calendar')[0];
         for(let i=1;i<=31;i++){
             const div = document.createElement('div');
@@ -106,8 +112,19 @@ html,body, .global{
                 let date = new Date(day.datetask);
                 if(i == date.getDate()){
                     div.className = "task";
+                    div.addEventListener("click",()=>{
+                        if(clicked){
+                            mostrar.removeChild();
+                        }
+                        console.log(day);
+                         superStringRefache2 += "<div style='border:1px solid black;'>Titulo: " + day.title + "<br>Descripción: " + day.desc + "<br>Categoria: " + day.category + "<br>Fecha fin: " + day.datetask + "</div><br><br>";
+                         mostrar.innerHTML = superStringRefache2;
+                         clicked = true;
+
+                    })
                 }
             });
+
             div.textContent = i;
             calendar.appendChild(div);
         }
