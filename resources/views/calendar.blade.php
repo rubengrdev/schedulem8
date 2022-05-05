@@ -67,11 +67,32 @@ html,body, .global{
 
 
         </div>
+        <div class="create-div">
+            <input type="button" class="create btn btn-primary" value="Crear Tarea" onclick="">
+        </div>
+
     </div>
 
+<input id="uid" type="hidden" value="{{ Auth::user()->id }}">
+
 <script>
+    let uid = document.getElementById("uid").value;
+    let create = document.querySelector(".create");
+    create.addEventListener("click",()=>{
+        //usando Blade
+        window.location='{{ route('task.create') }}';
+    },false);
+    //console.log(uid);
     const getTasks = async () => {
-        const response = await fetch("http://localhost:8000/api/tasks");
+        const response = await fetch("http://localhost:8000/api/tasks",{
+            method: 'POST',
+            headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        "X-CSRF-Token": document.querySelector('input[name=_token]').value
+    },
+        body: uid
+        });
         const data = await response.json();
         console.log(data);
         setTasks(data.data);

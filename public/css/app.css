@@ -68,7 +68,12 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
-
+.create-div{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
 hr {
   box-sizing: content-box;
   height: 0;
