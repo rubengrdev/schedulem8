@@ -67,7 +67,7 @@ html,body, .global{
 
 
         </div>
-        <input type="button" class="create" value="Crear Tarea">
+        <input type="button" class="create" value="Crear Tarea" onclick="{{ redirect("/tasks/create") }}">
     </div>
 
 <input id="uid" type="hidden" value="{{ Auth::user()->id }}">
@@ -76,14 +76,16 @@ html,body, .global{
     let uid = document.getElementById("uid").value;
     let create = document.querySelector(".create");
 
-    console.log(uid.value);
+    console.log(uid);
     const getTasks = async () => {
         const response = await fetch("http://localhost:8000/api/tasks",{
+            method: 'POST',
             headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         "X-CSRF-Token": document.querySelector('input[name=_token]').value
-    }
+    },
+        body: uid
         });
         const data = await response.json();
         console.log(data);
@@ -105,8 +107,6 @@ html,body, .global{
         }
     }
 
-    create.addEventListener("click",()=>{
 
-    });
 </script>
 @endsection
