@@ -102,7 +102,8 @@ class TaskController extends Controller
         if ($task->save()) {
             return response()->json([
                 'success' => true,
-                'data' => 'Task saved'
+                'data' => 'Task saved',
+                'taskinfo' => $task
             ], 200);
         }
     }
